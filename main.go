@@ -88,5 +88,8 @@ func main() {
 	final := fmt.Sprintf(head, *p)
 	final += fmt.Sprintf(folder, data)
 	final += tail
-	ioutil.WriteFile(*o, []byte(final), 0600)
+	err := ioutil.WriteFile(*o, []byte(final), 0600)
+	if err != nil {
+		log.Fatal(err)
+	}
 }
